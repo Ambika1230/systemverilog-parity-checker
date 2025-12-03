@@ -9,3 +9,12 @@ module xor_nor(input logic A, B, output logic Y);
     nor(t4, t2, t3);
     nor(Y, t4, t4);
 endmodule
+module parity_nor_gate(
+    input  logic a, b, c,
+    output logic y
+);
+    logic ab_xor;
+    xor_nor u1(.A(a), .B(b), .Y(ab_xor));
+    xor_nor u2(.A(ab_xor), .B(c), .Y(y));
+endmodule
+
