@@ -65,6 +65,16 @@ package parity_pkg;
 endpackage
 
 module parity_tb;
-    iref arguments: these signals can be read and written in the task
+ import parity_pkg::*;
+logic a, b, c, y;
+// Instantiate DUT
+parity_behav dut(.a(a), .b(b), .c(c),.y(y));
+initial 
+    begin
+parity_test test = new();
+    test.run(a, b, c, y);
+$;
+end
+    endmodule
 
 
